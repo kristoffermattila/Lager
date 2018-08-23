@@ -9,6 +9,7 @@ import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Stream;
 
 /**
  *
@@ -17,13 +18,19 @@ import java.util.Scanner;
 public class Lager {
 //    List<List<Item>> lists;
     List<TV> tvs;
+    List<Monitor> monitors;
 //    TV tv;
     
     Lager() {
 //        lists = new ArrayList<>();
         tvs = new ArrayList<>();
+        monitors = new ArrayList<>();
 //        tv = new TV("Test", "Test", 2.0, 2.0, Period.ZERO, 2.0, "Test");
 //        lists.add(tvs);
+    }
+    
+    public Stream getAllLists() {
+        return Stream.concat(tvs.stream(), monitors.stream());
     }
     
     public boolean addItem(String s) {
@@ -33,7 +40,9 @@ public class Lager {
             case "TV" :
                 return add(new TV(sc.next(), sc.next(), sc.nextDouble(), sc.nextDouble(),
                         Period.ofYears(sc.nextInt()), sc.nextDouble(), sc.nextLine()));
-                
+            case "Monitor" :
+                return add(new Monitor(sc.next(), sc.next(), sc.nextDouble(), sc.nextDouble(),
+                        Period.ofYears(sc.nextInt())));
             default:
                 System.out.println("Felaktigt föremål");
             
@@ -44,11 +53,16 @@ public class Lager {
     public void addTestItems() {
         addItem("TV OLED BängOlufsen 200 10 1 80 Sämst");
         addItem("TV LED LG 100 50 3 28 Bästa TV");
+        addItem("Monitor LCD Shamshung 1000 800 2");
         System.out.println("Testföremål tillagda");
     }
     
     public boolean add(TV tv) {
         return tvs.add(tv);
+    }
+    
+    public boolean add(Monitor monitor) {
+        return monitors.add(monitor);
     }
 
     public static void displayMenu(){
@@ -101,7 +115,6 @@ public class Lager {
 
             }
         }
-        // TODO code application logic here
     }
     
 }
