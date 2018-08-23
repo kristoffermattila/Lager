@@ -29,6 +29,10 @@ public class Lager {
 //        lists.add(tvs);
     }
     
+    /**
+     * 
+     * @return Stream of all Items
+     */
     public Stream getAllLists() {
         return Stream.concat(tvs.stream(), monitors.stream());
     }
