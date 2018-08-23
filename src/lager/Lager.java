@@ -73,7 +73,7 @@ public class Lager {
         
         */
   //      tvs.forEach( (TV tv) -> System.out.println(tv.getType()) );
-        tvs.forEach( (TV teve) -> System.out.println(teve.getType()) );
+        tvs.forEach( teve -> System.out.println(teve.getType()) );
         /*
         for(List<Item> l : lists) {
             for(Item i : l) {
