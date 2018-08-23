@@ -54,4 +54,11 @@ public class TV extends Item {
     public String getName() {
         return "TV";
     }
+    
+    @Override
+    public String toString() {
+        return super.toString()+
+                "\n\tStorlek: "+getSize()+" tum"+
+                "\n\tBeskrivning: "+getFunctionDescription();
+    }
 }
