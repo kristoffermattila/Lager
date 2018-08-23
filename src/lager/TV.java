@@ -49,4 +49,9 @@ public class TV extends Item {
     public void setFunctionDescription(String functionDescription) {
         this.functionDescription = functionDescription;
     }
+
+    @Override
+    public String getName() {
+        return "TV";
+    }
 }

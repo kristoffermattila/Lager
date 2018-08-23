@@ -29,7 +29,6 @@ public class Lager {
     public boolean addItem(String s) {
         Scanner sc = new Scanner(s);
         String itemType = sc.next();
-        System.out.println(itemType);
         switch (itemType) {
             case "TV" :
                 return add(new TV(sc.next(), sc.next(), sc.nextDouble(), sc.nextDouble(),
@@ -43,9 +42,9 @@ public class Lager {
     }
     
     public void addTestItems() {
-        
         addItem("TV OLED BängOlufsen 200 10 1 80 Sämst");
         addItem("TV LED LG 100 50 3 28 Bästa TV");
+        System.out.println("Testföremål tillagda");
     }
     
     public boolean add(TV tv) {
@@ -55,6 +54,7 @@ public class Lager {
     public static void displayMenu(){
         System.out.println("Menyval:");
         System.out.println("1. Lista typer");
+        System.out.println("2. Lista allt");
         System.out.println("9. avsluta");
         System.out.println("0. Lägg till testföremål");
                 
@@ -64,22 +64,11 @@ public class Lager {
      */
     
     public void listTypes() {
-        /*
-        System.out.println("Listar alla typer: ");
-        System.out.println();
-        skriv ut namnet på rubriken
-        loopa igenom listan med TVapparter och skriv ut unika Typer för varje
-        
-        
-        */
-  //      tvs.forEach( (TV tv) -> System.out.println(tv.getType()) );
-        tvs.forEach( teve -> System.out.println(teve.getType()) );
-        /*
-        for(List<Item> l : lists) {
-            for(Item i : l) {
-                System.out.println(i.getType());
-            }
-        }*/
+        tvs.forEach( teve -> System.out.println("Föremål: "+teve.getName()+"\n\tTyp:"+teve.getType()) );
+    }
+    
+    private void listEverything() {
+        tvs.forEach(tv -> System.out.println(tv));
     }
             
     
@@ -97,6 +86,9 @@ public class Lager {
             {
                 case 1: 
                     theLager.listTypes();
+                    break;
+                case 2:
+                    theLager.listEverything();
                     break;
                 case 9:
                     System.out.println("Avslutar");

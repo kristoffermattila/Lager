@@ -95,4 +95,16 @@ public abstract class Item {
     public void setWarranty(Period warranty) {
         this.warranty = warranty;
     }
+    
+    public abstract String getName();
+    
+    @Override
+    public String toString() {
+        return "Föremål: "+getName()+
+                "\n\tTyp: "+getType()+
+                "\n\tTillverkare: "+getManufacturer()+
+                "\n\tPris: "+getPrice()+" kr"+
+                "\n\tInköpspris: "+getCostPrice()+" kr"+
+                "\n\tGarantitid: "+getWarranty().getYears()+" år";
+    }
 }
