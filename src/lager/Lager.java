@@ -9,6 +9,8 @@ import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeSet;
 import java.util.stream.Stream;
 
 /**
@@ -17,14 +19,14 @@ import java.util.stream.Stream;
  */
 public class Lager {
 //    List<List<Item>> lists;
-    List<TV> tvs;
-    List<Monitor> monitors;
+    Set<TV> tvs;
+    Set<Monitor> monitors;
 //    TV tv;
     
     Lager() {
 //        lists = new ArrayList<>();
-        tvs = new ArrayList<>();
-        monitors = new ArrayList<>();
+        tvs = new TreeSet<>();
+        monitors = new TreeSet<>();
 //        tv = new TV("Test", "Test", 2.0, 2.0, Period.ZERO, 2.0, "Test");
 //        lists.add(tvs);
     }
@@ -33,7 +35,7 @@ public class Lager {
      * 
      * @return Stream of all Items
      */
-    public Stream getAllLists() {
+    public Stream<Item> streamOfEverything() {
         return Stream.concat(tvs.stream(), monitors.stream());
     }
     
@@ -82,11 +84,11 @@ public class Lager {
      */
     
     public void listTypes() {
-        tvs.forEach( teve -> System.out.println("Föremål: "+teve.getName()+"\n\tTyp:"+teve.getType()) );
+        streamOfEverything().forEach( item -> System.out.println("Föremål: "+item.getName()+"\n\tTyp:"+item.getType()) );
     }
     
     private void listEverything() {
-        tvs.forEach(tv -> System.out.println(tv));
+        streamOfEverything().forEach(tv -> System.out.println(tv));
     }
             
     
