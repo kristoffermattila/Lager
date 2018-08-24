@@ -18,6 +18,7 @@ public abstract class Item implements Comparable<Item> {
     private double price;
     private double costPrice;
     private Period warranty;
+    private int amount;
 
     Item(String type, String manufacturer, double price, double costPrice, Period warranty) {
         this.type = type;
@@ -25,6 +26,7 @@ public abstract class Item implements Comparable<Item> {
         this.price = price;
         this.costPrice = costPrice;
         this.warranty = warranty;
+        amount = 0;
     }
     /**
      * @return the type
@@ -115,5 +117,23 @@ public abstract class Item implements Comparable<Item> {
             return this.type.compareTo(o.type);
         }
         return comparison;
+    }
+
+    /**
+     * @return the amount
+     */
+    public int getAmount() {
+        return amount;
+    }
+
+    /**
+     * @param amount the amount to set
+     */
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+    
+    public int addAmount(int amount) {
+        return this.amount += amount;
     }
 }
