@@ -11,7 +11,7 @@ import java.time.Period;
  *
  * @author kmatil
  */
-public abstract class Item {    
+public abstract class Item implements Comparable<Item> {    
     
     private String type;
     private String manufacturer;
@@ -106,5 +106,14 @@ public abstract class Item {
                 "\n\tPris: "+getPrice()+" kr"+
                 "\n\tInköpspris: "+getCostPrice()+" kr"+
                 "\n\tGarantitid: "+getWarranty().getYears()+" år";
+    }
+
+    @Override
+    public int compareTo(Item o) {
+        int comparison =  this.manufacturer.compareTo(o.manufacturer);
+        if(comparison == 0) {
+            return this.type.compareTo(o.type);
+        }
+        return comparison;
     }
 }
