@@ -79,9 +79,6 @@ public class Lager {
         System.out.println("0. Lägg till testföremål");
                 
     }
-    /**
-     * @param args the command line arguments
-     */
     
     public void listTypes() {
         streamOfEverything().forEach( item -> System.out.println("Föremål: "+item.getName()+"\n\tTyp:"+item.getType()) );
@@ -92,6 +89,9 @@ public class Lager {
     }
             
     
+    /**
+     * @param args the command line arguments
+     */
     public static void main(String[] args) {
         Lager theLager = new Lager();
         Scanner scanner = new Scanner(System.in);
