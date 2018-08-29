@@ -53,7 +53,7 @@ public class Lager {
                 System.out.println("Felaktigt föremål");
             
         }
-        return true;
+        return false;
     }
     
     public void addTestItems() {
